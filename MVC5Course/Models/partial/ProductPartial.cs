@@ -14,7 +14,8 @@ namespace MVC5Course.Models
         [StringLength(10,ErrorMessage ="商品名稱不可超過10個字")]
         public string ProductName { get; set; }
 
-
+        [Required]
+        [DisplayFormat(DataFormatString ="{0:N0}")]
         public Nullable<decimal> Price { get; set; }
 
         [Required]
