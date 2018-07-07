@@ -156,6 +156,16 @@ namespace MVC5Course.Controllers
             {
                 return View();
             }
+            var newData = new Product() {
+                Active=model.Active,
+                Price=model.Price,
+                ProductId=model.ProductId,
+                ProductName=model.ProductName,
+                Stock=model.Stock
+            };
+            db.Product.Add(newData);
+            db.SaveChanges();
+
             return RedirectToAction("Index2");
         }
     }
