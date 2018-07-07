@@ -228,14 +228,15 @@ namespace MVC5Course.Controllers
             return View(existDataViewModel);
         }
 
-        [HttpPost]
-        public ActionResult DeleteOldProduct(ProductViewModel model)
+        [HttpPost, ActionName("DeleteOldProduct")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteOldProductConfirmed(int id)
         {
             if (!ModelState.IsValid)
             {
                 return View();
             }
-            var existData = db.Product.FirstOrDefault(x => x.ProductId == model.ProductId);
+            var existData = db.Product.FirstOrDefault(x => x.ProductId == id);
             if (existData == null)
             {
                 throw new NullReferenceException("找不到資料");
