@@ -254,6 +254,7 @@
     <Content Include="Views\Products\Index2.cshtml" />
     <Content Include="Views\Products\AddNewProduct.cshtml" />
     <Content Include="Views\Products\EditOldProduct.cshtml" />
+    <Content Include="Views\Products\DeleteOldProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
