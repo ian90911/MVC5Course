@@ -168,5 +168,46 @@ namespace MVC5Course.Controllers
 
             return RedirectToAction("Index2");
         }
+
+        public ActionResult EditOldProduct(int id)
+        {
+            var existData = db.Product.FirstOrDefault(x => x.ProductId == id);
+            if (existData == null)
+            {
+                throw new NullReferenceException("找不到資料");
+            }
+            var existDataViewModel = new ProductViewModel() {
+                ProductId=existData.ProductId,
+                Active=existData.Active,
+                Price=existData.Price,
+                ProductName=existData.ProductName,
+                Stock=existData.Stock
+            };
+            return View(existDataViewModel);
+        }
+
+        [HttpPost]
+        public ActionResult EditOldProduct(ProductViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            var existData = db.Product.FirstOrDefault(x => x.ProductId == model.ProductId);
+            if (existData == null)
+            {
+                throw new NullReferenceException("找不到資料");
+            }
+            existData.Price = model.Price;
+            existData.ProductName = model.ProductName;
+            existData.Stock = model.Stock;
+            existData.Active = model.Active;
+            int result=db.SaveChanges();
+            if (result <= 0)
+            {
+                throw new ArgumentException("更新失敗");
+            }
+            return RedirectToAction("Index2");
+        }
     }
 }
