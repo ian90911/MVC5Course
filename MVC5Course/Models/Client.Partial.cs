@@ -1,9 +1,10 @@
 namespace MVC5Course.Models
 {
+    using Attribute;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    
+
     [MetadataType(typeof(ClientMetaData))]
     public partial class Client
     {
@@ -48,6 +49,8 @@ namespace MVC5Course.Models
         public string ZipCode { get; set; }
         public Nullable<double> Longitude { get; set; }
         public Nullable<double> Latitude { get; set; }
+
+        [TaiwanIdentificationNumberAttribute]
         public string Notes { get; set; }
     
         public virtual Occupation Occupation { get; set; }

@@ -155,6 +155,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Attribute\TaiwanIdentificationNumberAttribute.cs" />
     <Compile Include="Models\Client.cs">
       <DependentUpon>FabricsModel.tt</DependentUpon>
     </Compile>
