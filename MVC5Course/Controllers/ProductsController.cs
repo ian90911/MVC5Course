@@ -143,5 +143,20 @@ namespace MVC5Course.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult AddNewProduct()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddNewProduct(ProductViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            return RedirectToAction("Index2");
+        }
     }
 }
