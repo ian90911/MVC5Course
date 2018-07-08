@@ -10,6 +10,7 @@ using MVC5Course.Models;
 
 namespace MVC5Course.Controllers
 {
+    [RoutePrefix("VIP")]
     public class ClientsController : Controller
     {
         private IClientRepository _clientRepo;
@@ -47,6 +48,7 @@ namespace MVC5Course.Controllers
         }
 
         // GET: Clients/Details/5
+        [Route("{id}")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -62,6 +64,7 @@ namespace MVC5Course.Controllers
         }
 
         // GET: Clients/Create
+        [Route("CreateVIP")]
         public ActionResult Create()
         {
             ViewBag.OccupationId = new SelectList(OccupationRepo.All(), "OccupationId", "OccupationName");
@@ -71,6 +74,7 @@ namespace MVC5Course.Controllers
         // POST: Clients/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Route("CreateVIP")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ClientId,FirstName,MiddleName,LastName,Gender,DateOfBirth,IdNumber,CreditRating,XCode,OccupationId,TelephoneNumber,Street1,Street2,City,ZipCode,Longitude,Latitude,Notes")] Client client)
@@ -87,6 +91,7 @@ namespace MVC5Course.Controllers
         }
 
         // GET: Clients/Edit/5
+        [Route("EditVIP")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -105,6 +110,7 @@ namespace MVC5Course.Controllers
         // POST: Clients/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Route("EditVIP")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ClientId,FirstName,MiddleName,LastName,Gender,DateOfBirth,IdNumber,CreditRating,XCode,OccupationId,TelephoneNumber,Street1,Street2,City,ZipCode,Longitude,Latitude,Notes")] Client client)
@@ -121,6 +127,7 @@ namespace MVC5Course.Controllers
         }
 
         // GET: Clients/Delete/5
+        [Route("Delete/{id}")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -136,6 +143,7 @@ namespace MVC5Course.Controllers
         }
 
         // POST: Clients/Delete/5
+        [Route("Delete/{id}")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
