@@ -24,6 +24,11 @@ namespace MVC5Course.Models
             return query;
         }
 
+        public override IQueryable<Client> All()
+        {
+            return base.All().Where(x=>x.IsDeleted==false);
+        }
+
         public override void Delete(Client entity)
         {
             entity.IsDeleted = true;
