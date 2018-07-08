@@ -18,5 +18,10 @@ namespace MVC5Course.Controllers
         {
             return View((object)("test"));
         }
+
+        public PartialViewResult PartialViewTest()
+        {
+            return PartialView("ViewTest", "hihihi");
+        }
     }
 }
