@@ -14,13 +14,13 @@ namespace MVC5Course.Models
             {
                 query = query.Where(x => x.FirstName.Contains(name) || x.MiddleName.Contains(name) || x.LastName.Contains(name));
             }
-            query = query.Where(x=>x.IsDeleted==false).Include(c => c.Occupation).OrderByDescending(x => x.ClientId).Skip(skip).Take(take);
+            query = query.Include(c => c.Occupation).OrderByDescending(x => x.ClientId).Skip(skip).Take(take);
             return query.ToList();
         }
 
         public Client GetClientById(int id)
         {
-            var query = this.All().FirstOrDefault(x => x.IsDeleted == false && x.ClientId == id);
+            var query = this.All().FirstOrDefault(x => x.ClientId == id);
             return query;
         }
 
