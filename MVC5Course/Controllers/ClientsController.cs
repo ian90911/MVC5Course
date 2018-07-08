@@ -12,9 +12,9 @@ namespace MVC5Course.Controllers
 {
     public class ClientsController : Controller
     {
-        private ClientRepository _clientRepo;
+        private IClientRepository _clientRepo;
 
-        private ClientRepository ClientRepo
+        private IClientRepository ClientRepo
         {
             get
             {
@@ -26,9 +26,9 @@ namespace MVC5Course.Controllers
             }
         }
 
-        private OccupationRepository _occupationRepo;
+        private IOccupationRepository _occupationRepo;
 
-        private OccupationRepository OccupationRepo
+        private IOccupationRepository OccupationRepo
         {
             get
             {

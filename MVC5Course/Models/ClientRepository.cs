@@ -27,6 +27,7 @@ namespace MVC5Course.Models
 
 	public  interface IClientRepository : IRepository<Client>
 	{
-
-	}
+        List<Client> GetClientByName(string name, int take, int skip);
+        Client GetClientById(int id);
+    }
 }
