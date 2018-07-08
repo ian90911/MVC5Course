@@ -9,6 +9,11 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+@using (Html.BeginForm("Index", "Clients", FormMethod.Get, null))
+{
+    @Html.TextBox("clientName",null, new { @placeholder= "客戶名稱查詢" })
+    <button type="submit">search</button>
+}
 <table class="table">
     <tr>
         <th>

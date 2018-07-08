@@ -15,10 +15,15 @@ namespace MVC5Course.Controllers
         private FabricsEntities db = new FabricsEntities();
 
         // GET: Clients
-        public ActionResult Index()
+        public ActionResult Index([Bind(Prefix = "clientName")]string clinetName)
         {
-            var client = db.Client.Include(c => c.Occupation).OrderByDescending(x=>x.ClientId).Take(10);
-            return View(client.ToList());
+            var query = db.Client.AsQueryable();
+            if (!string.IsNullOrEmpty(clinetName))
+            {
+                query = query.Where(x => x.FirstName.Contains(clinetName) || x.MiddleName.Contains(clinetName) || x.LastName.Contains(clinetName));
+            }
+            query = query.Include(c => c.Occupation).OrderByDescending(x=>x.ClientId).Take(10);
+            return View(query.ToList());
         }
 
         // GET: Clients/Details/5
