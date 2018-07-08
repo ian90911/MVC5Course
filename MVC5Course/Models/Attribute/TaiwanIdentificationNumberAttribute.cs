@@ -16,7 +16,10 @@ namespace MVC5Course.Models.Attribute
         public override bool IsValid(object value)
         {
             string str = (string)value;
-            return isIdentificationId(str);
+            if(!string.IsNullOrEmpty(str))
+                return isIdentificationId(str);
+            else
+                return true;//空的就不檢查
         }
 
         public static bool isIdentificationId(string arg_Identify)
