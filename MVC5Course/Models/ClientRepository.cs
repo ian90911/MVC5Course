@@ -32,8 +32,6 @@ namespace MVC5Course.Models
         public override void Delete(Client entity)
         {
             entity.IsDeleted = true;
-            this.UnitOfWork.Context.Entry(entity).State = EntityState.Modified;
-            this.UnitOfWork.Commit();
         }
     }
 
