@@ -154,6 +154,14 @@ namespace MVC5Course.Controllers
             return RedirectToAction("Index");
         }
 
+
+        [Route("{id}/detail")]
+        public ActionResult TestClientDetail(int id)
+        {
+            var orders = ClientRepo.GetClientById(id).Order.ToList();
+            return View(orders);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
