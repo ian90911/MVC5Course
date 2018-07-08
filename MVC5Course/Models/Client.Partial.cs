@@ -70,7 +70,9 @@ namespace MVC5Course.Models
         [StringLength(10, ErrorMessage="欄位長度不得大於 10 個字元")]
         [TaiwanIdentificationNumberAttribute]
         public string IdNumber { get; set; }
-    
+
+        public bool IsDeleted { get; set; }
+
         public virtual Occupation Occupation { get; set; }
         public virtual ICollection<Order> Order { get; set; }
     }

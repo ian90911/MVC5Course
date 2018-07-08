@@ -14,7 +14,7 @@ namespace MVC5Course.Models
             {
                 query = query.Where(x => x.FirstName.Contains(name) || x.MiddleName.Contains(name) || x.LastName.Contains(name));
             }
-            query = query.Include(c => c.Occupation).OrderByDescending(x => x.ClientId).Skip(skip).Take(take);
+            query = query.Where(x=>x.IsDeleted==false).Include(c => c.Occupation).OrderByDescending(x => x.ClientId).Skip(skip).Take(take);
             return query.ToList();
         }
 
@@ -22,6 +22,13 @@ namespace MVC5Course.Models
         {
             var query = this.All().FirstOrDefault(x => x.ClientId == id);
             return query;
+        }
+
+        public override void Delete(Client entity)
+        {
+            entity.IsDeleted = true;
+            this.UnitOfWork.Context.Entry(entity).State = EntityState.Modified;
+            this.UnitOfWork.Commit();
         }
     }
 

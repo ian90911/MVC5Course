@@ -34,7 +34,7 @@ namespace MVC5Course.Controllers
             {
                 if (this._occupationRepo == null)
                 {
-                    this._occupationRepo = RepositoryHelper.GetOccupationRepository();
+                    this._occupationRepo = RepositoryHelper.GetOccupationRepository(ClientRepo.UnitOfWork);
                 }
                 return this._occupationRepo;
             }
