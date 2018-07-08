@@ -20,7 +20,7 @@ namespace MVC5Course.Models
 
         public Client GetClientById(int id)
         {
-            var query = this.All().FirstOrDefault(x => x.ClientId == id);
+            var query = this.All().FirstOrDefault(x => x.IsDeleted == false && x.ClientId == id);
             return query;
         }
 
