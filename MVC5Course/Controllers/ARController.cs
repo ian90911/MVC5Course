@@ -29,11 +29,11 @@ namespace MVC5Course.Controllers
         {
             if (string.IsNullOrEmpty(dl))
             {
-                return File(Server.MapPath("~/App_Data/RickyRollin.jpg"), MediaTypeNames.Application.Octet);
+                return File(Server.MapPath("~/App_Data/RickyRollin.jpg"), MediaTypeNames.Image.Jpeg);
             }
             else
             {
-                return File(Server.MapPath("~/App_Data/RickyRollin.jpg"), MediaTypeNames.Image.Jpeg);
+                return File(Server.MapPath("~/App_Data/RickyRollin.jpg"), MediaTypeNames.Image.Jpeg, $"{Server.UrlEncode(dl)}.jpg");
             }
         }
     }
