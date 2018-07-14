@@ -154,6 +154,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ClientsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MBController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -325,9 +326,14 @@
     <Content Include="Views\Clients\Index.cshtml" />
     <Content Include="Views\Clients\TestClientDetail.cshtml" />
     <Content Include="Views\AR\ViewTest.cshtml" />
+    <Content Include="Views\MB\Index.cshtml" />
+    <Content Include="Views\MB\ViewDataTest.cshtml" />
+    <Content Include="Views\MB\ViewBagTest.cshtml" />
+    <Content Include="Views\MB\TempDataTest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\MV\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
