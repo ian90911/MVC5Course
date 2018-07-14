@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MVC5Course.ViewModel.ClientBatchUpdateViewModel>
+
+@{
+    ViewBag.Title = "BatchUpdate";
+}
+
+<h2>BatchUpdate</h2>
+
+@using (Html.BeginForm())
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MiddleName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th></th>
+        </tr>
+        @{ 
+            var client = Model.ToList();
+        }
+        @for(var i=0;i<Model.Count();i++)
+        {
+            <tr>
+                <td>
+                    @Html.HiddenFor(modelItem => client[i].ClientId)
+                    @Html.EditorFor(modelItem => client[i].FirstName)
+                    @Html.ValidationMessageFor(modelItem => client[i].FirstName, "", new { @class = "text-danger" })
+                </td>
+                <td>
+                    @Html.EditorFor(modelItem => client[i].MiddleName)
+                    @Html.ValidationMessageFor(modelItem => client[i].MiddleName, "", new { @class = "text-danger" })
+                </td>
+                <td>
+                    @Html.EditorFor(modelItem => client[i].LastName)
+                    @Html.ValidationMessageFor(modelItem => client[i].LastName, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <button type="submit" class="btn btn-primary">Save</button>
+}

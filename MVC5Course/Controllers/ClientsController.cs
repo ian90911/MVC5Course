@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MVC5Course.Models;
+using MVC5Course.ViewModel;
 
 namespace MVC5Course.Controllers
 {
@@ -160,6 +161,42 @@ namespace MVC5Course.Controllers
         {
             var orders = ClientRepo.GetClientById(id).Order.ToList();
             return View(orders);
+        }
+
+        public ActionResult BatchUpdate()
+        {
+            ViewData.Model = ClientRepo.All().Take(10).Select(x=>new ClientBatchUpdateViewModel() {
+                ClientId=x.ClientId,
+                FirstName=x.FirstName,
+                LastName=x.LastName,
+                MiddleName=x.MiddleName
+            });
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult BatchUpdate(IList<ClientBatchUpdateViewModel> client)
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewData.Model = ClientRepo.All().Take(10).Select(x => new ClientBatchUpdateViewModel()
+                {
+                    ClientId = x.ClientId,
+                    FirstName = x.FirstName,
+                    LastName = x.LastName,
+                    MiddleName = x.MiddleName
+                });
+                return View();
+            }
+            foreach (var item in client)
+            {
+                var existData = ClientRepo.GetClientById(item.ClientId);
+                existData.FirstName = item.FirstName;
+                existData.MiddleName = item.MiddleName;
+                existData.LastName = item.LastName;
+            }
+            ClientRepo.UnitOfWork.Commit();
+            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
