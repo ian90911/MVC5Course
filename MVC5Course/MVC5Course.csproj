@@ -180,6 +180,7 @@
     <Compile Include="Models\EFUnitOfWork.cs">
       <DependentUpon>IRepository.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Exceptions\TestException.cs" />
     <Compile Include="Models\FabricsModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -332,6 +333,7 @@
     <Content Include="Views\MB\ViewBagTest.cshtml" />
     <Content Include="Views\MB\TempDataTest.cshtml" />
     <Content Include="Views\Clients\BatchUpdate.cshtml" />
+    <Content Include="Views\Shared\TestExceptionError.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />

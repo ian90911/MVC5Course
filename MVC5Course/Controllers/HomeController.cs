@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVC5Course.Models.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,10 +14,12 @@ namespace MVC5Course.Controllers
             return View();
         }
 
+        [HandleError(ExceptionType =typeof(TestException),
+            View= "TestExceptionError")]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-
+            throw new TestException();
             return View();
         }
 

@@ -114,17 +114,19 @@ namespace MVC5Course.Controllers
         [Route("EditVIP")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ClientId,FirstName,MiddleName,LastName,Gender,DateOfBirth,IdNumber,CreditRating,XCode,OccupationId,TelephoneNumber,Street1,Street2,City,ZipCode,Longitude,Latitude,Notes")] Client client)
+        public ActionResult Edit(int id,FormCollection form)
         {
-            if (ModelState.IsValid)
+            var existData = ClientRepo.GetClientById(id);
+            
+            if (TryUpdateModel(existData))
             {
 
-                ClientRepo.UnitOfWork.Context.Entry(client).State = EntityState.Modified;
+                ClientRepo.UnitOfWork.Context.Entry(existData).State = EntityState.Modified;
                 ClientRepo.UnitOfWork.Commit();
                 return RedirectToAction("Index");
             }
-            ViewBag.OccupationId = new SelectList(OccupationRepo.All(), "OccupationId", "OccupationName", client.OccupationId);
-            return View(client);
+            ViewBag.OccupationId = new SelectList(OccupationRepo.All(), "OccupationId", "OccupationName", existData.OccupationId);
+            return View(existData);
         }
 
         // GET: Clients/Delete/5
