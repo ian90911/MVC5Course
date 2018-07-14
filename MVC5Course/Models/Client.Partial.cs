@@ -18,6 +18,11 @@ namespace MVC5Course.Models
                 "要填經緯度就經度或緯度都要填，否則就都不要填", new[] { "Latitude", "Longitude" });
             }
         }
+
+        partial void Init()
+        {
+            this.DateOfBirth = DateTime.Now;
+        }
     }
 
     public partial class ClientMetaData
