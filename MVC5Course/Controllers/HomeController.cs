@@ -1,4 +1,5 @@
-﻿using MVC5Course.Models.Exceptions;
+﻿using MVC5Course.Models.Attribute;
+using MVC5Course.Models.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace MVC5Course.Controllers
             return View();
         }
 
+        [ProductOnly]
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
