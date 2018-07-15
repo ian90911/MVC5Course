@@ -155,6 +155,7 @@
     <Compile Include="Controllers\ClientsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MBController.cs" />
+    <Compile Include="Controllers\RazorController.cs" />
     <Compile Include="Models\Attribute\ProductOnlyAttribute.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -335,6 +336,7 @@
     <Content Include="Views\MB\TempDataTest.cshtml" />
     <Content Include="Views\Clients\BatchUpdate.cshtml" />
     <Content Include="Views\Shared\TestExceptionError.cshtml" />
+    <Content Include="Views\Razor\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />
