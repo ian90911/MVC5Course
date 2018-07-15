@@ -183,6 +183,7 @@
       <DependentUpon>IRepository.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Exceptions\TestException.cs" />
+    <Compile Include="Models\Exceptions\ViewDataDictionaryExtenstion.cs" />
     <Compile Include="Models\FabricsModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -511,6 +512,7 @@
     <Content Include="Views\Razor\Index.cshtml" />
     <Content Include="Views\Razor\DashBoard.cshtml" />
     <Content Include="Views\Razor\_DashBoardLayout.cshtml" />
+    <Content Include="Views\Razor\TryModelStateExtension.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />
