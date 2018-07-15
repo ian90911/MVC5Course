@@ -513,6 +513,7 @@
     <Content Include="Views\Razor\DashBoard.cshtml" />
     <Content Include="Views\Razor\_DashBoardLayout.cshtml" />
     <Content Include="Views\Razor\TryModelStateExtension.cshtml" />
+    <Content Include="Views\Clients\_OrderList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />

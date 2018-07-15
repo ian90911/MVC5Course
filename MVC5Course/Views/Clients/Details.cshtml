@@ -144,3 +144,11 @@
     @Html.ActionLink("Edit", "Edit", new { id = Model.ClientId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+<h1>Partial Order List</h1>
+<hr />
+@Html.Partial("_OrderList", Model.Order.ToList())
+
+
+<h1>Action Order List</h1>
+<hr />
+@Html.Action("OrderList",new { id= Model.ClientId })

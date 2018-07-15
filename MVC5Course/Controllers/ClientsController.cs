@@ -201,6 +201,12 @@ namespace MVC5Course.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult OrderList(int id)
+        {
+            var orderList = ClientRepo.GetClientById(id).Order?.ToList();
+            return PartialView("_OrderList", orderList);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
