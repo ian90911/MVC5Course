@@ -360,11 +360,22 @@
                     <p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a> enabled to use this site.</p>
                 </div>
             </noscript>
+            <div id="content" class="span10">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home"></i>
+                        @Html.ActionLink("Home", "Index", "Home")
+                        <i class="icon-angle-right"></i>
+                    </li>
+                    <li>
+                        @RenderSection("breadcrumb", true)
+                    </li>
+                </ul>
 
-            @RenderBody()
-
+                @RenderBody()
+            </div><!--/.fluid-container-->
         </div><!--/#content.span10-->
-    </div><!--/fluid-row-->
+        </div><!--/fluid-row-->
 
     <div class="modal hide fade" id="myModal">
         <div class="modal-header">
