@@ -31,45 +31,54 @@ namespace MVC5Course.Models
         public int ClientId { get; set; }
 
         [Required]
-        [StringLength(50, ErrorMessage="欄位長度不得大於 50 個字元")]
+        [StringLength(50, ErrorMessage = "欄位長度不得大於 50 個字元")]
         public string FirstName { get; set; }
-        
+
         [Required]
-        [StringLength(50, ErrorMessage="欄位長度不得大於 50 個字元")]
+        [StringLength(50, ErrorMessage = "欄位長度不得大於 50 個字元")]
         public string MiddleName { get; set; }
-        
+
         [Required]
-        [StringLength(50, ErrorMessage="欄位長度不得大於 50 個字元")]
+        [StringLength(50, ErrorMessage = "欄位長度不得大於 50 個字元")]
         public string LastName { get; set; }
-        
+
         [Required]
-        [StringLength(1, ErrorMessage="欄位長度不得大於 1 個字元")]
+        [StringLength(1, ErrorMessage = "欄位長度不得大於 1 個字元")]
+        [UIHint("Gender")]
         public string Gender { get; set; }
 
-        [DisplayFormat(ApplyFormatInEditMode =true,DataFormatString ="{0:yyyy-MM-dd}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public Nullable<System.DateTime> DateOfBirth { get; set; }
         public Nullable<double> CreditRating { get; set; }
-        
-        [StringLength(7, ErrorMessage="欄位長度不得大於 7 個字元")]
+
+        [StringLength(7, ErrorMessage = "欄位長度不得大於 7 個字元")]
         public string XCode { get; set; }
         public Nullable<int> OccupationId { get; set; }
-        
-        [StringLength(50, ErrorMessage="欄位長度不得大於 50 個字元")]
+
+        [StringLength(50, ErrorMessage = "欄位長度不得大於 50 個字元")]
         public string TelephoneNumber { get; set; }
-        
-        [StringLength(100, ErrorMessage="欄位長度不得大於 100 個字元")]
+
+        [StringLength(100, ErrorMessage = "欄位長度不得大於 100 個字元")]
         public string Street1 { get; set; }
-        
-        [StringLength(100, ErrorMessage="欄位長度不得大於 100 個字元")]
+
+        [StringLength(100, ErrorMessage = "欄位長度不得大於 100 個字元")]
         public string Street2 { get; set; }
-        
-        [StringLength(100, ErrorMessage="欄位長度不得大於 100 個字元")]
+
+        [StringLength(100, ErrorMessage = "欄位長度不得大於 100 個字元")]
         public string City { get; set; }
-        
-        [StringLength(50, ErrorMessage="欄位長度不得大於 50 個字元")]
+
+        [StringLength(50, ErrorMessage = "欄位長度不得大於 50 個字元")]
         public string ZipCode { get; set; }
         public Nullable<double> Longitude { get; set; }
         public Nullable<double> Latitude { get; set; }
+        [UIHint("GoogleMap")]
+        public Tuple<double?, double?> MapPosition {
+            get {
+                return new Tuple<double?, double?>(Latitude, Longitude);
+            }
+            set {
+            }
+        }
         public string Notes { get; set; }
         
         [StringLength(10, ErrorMessage="欄位長度不得大於 10 個字元")]

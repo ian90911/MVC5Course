@@ -521,6 +521,8 @@
     <Content Include="Views\Orders\Details.cshtml" />
     <Content Include="Views\Orders\Edit.cshtml" />
     <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Gender.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\GoogleMap.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />

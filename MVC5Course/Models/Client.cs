@@ -40,6 +40,16 @@ namespace MVC5Course.Models
         public string ZipCode { get; set; }
         public Nullable<double> Longitude { get; set; }
         public Nullable<double> Latitude { get; set; }
+        public Tuple<double?, double?> MapPosition
+        {
+            get
+            {
+                return new Tuple<double?, double?>(Latitude, Longitude);
+            }
+            set
+            {
+            }
+        }
         public string Notes { get; set; }
         public string IdNumber { get; set; }
         public bool IsDeleted { get; set; }
