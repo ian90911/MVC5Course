@@ -248,6 +248,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\ClientBatchUpdateViewModel.cs" />
+    <Compile Include="ViewModel\ClientQueryCondition.cs" />
     <Compile Include="ViewModel\ProductViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

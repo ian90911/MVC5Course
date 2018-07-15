@@ -11,7 +11,8 @@
 </p>
 @using (Html.BeginForm("Index", "Clients", FormMethod.Get, null))
 {
-    @Html.TextBox("clientName", null, new { @placeholder = "客戶名稱查詢" })
+    @Html.TextBox("name", null, new { @placeholder = "客戶名稱查詢", @class = "form-control" })
+    @Html.DropDownList("CreditRating", null,"不指定", new { @class = "form-control" })
     @Html.Hidden("take", 10)
     @Html.Hidden("skip", 0)
     <button type="submit">search</button>

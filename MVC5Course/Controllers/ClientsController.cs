@@ -42,9 +42,14 @@ namespace MVC5Course.Controllers
             }
         }
         // GET: Clients
-        public ActionResult Index(string clientName,int take=10,int skip=0)
+        public ActionResult Index(ClientQueryCondition cond=null)
         {
-            var list = ClientRepo.GetClientByName(clientName,take,skip);
+            var list = ClientRepo.Search(cond);
+            var CreditRatingList = ClientRepo.All().Select(x => x.CreditRating).Distinct().OrderBy(x=>x).ToList().Select(x=>new SelectListItem() {
+                Text=x.Value.ToString(),
+                Value=x.Value.ToString()
+            });
+            ViewBag.CreditRating = new SelectList(CreditRatingList, "Value", "Text");
             return View(list);
         }
 

@@ -2,11 +2,27 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.Data.Entity;
+using MVC5Course.ViewModel;
 
 namespace MVC5Course.Models
 {   
 	public  class ClientRepository : EFRepository<Client>, IClientRepository
 	{
+        public List<Client> Search(ClientQueryCondition cond)
+        {
+            var query = this.All();
+            if (!string.IsNullOrEmpty(cond.name))
+            {
+                query = query.Where(x => x.FirstName.Contains(cond.name) || x.MiddleName.Contains(cond.name) || x.LastName.Contains(cond.name));
+            }
+            if (cond.CreditRating.HasValue)
+            {
+                query = query.Where(x => x.CreditRating == cond.CreditRating.Value);
+            }
+            query = query.Include(c => c.Occupation).OrderByDescending(x => x.ClientId).Skip(cond.skip).Take(cond.take);
+            return query.ToList();
+        }
+
         public List<Client> GetClientByName(string name,int take,int skip)
         {
             var query = this.All();
@@ -39,5 +55,6 @@ namespace MVC5Course.Models
 	{
         List<Client> GetClientByName(string name, int take, int skip);
         Client GetClientById(int id);
+        List<Client> Search(ClientQueryCondition cond);
     }
 }
