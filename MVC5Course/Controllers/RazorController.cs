@@ -13,5 +13,10 @@ namespace MVC5Course.Controllers
         {
             return PartialView();
         }
+
+        public ActionResult DashBoard()
+        {
+            return View();
+        }
     }
 }
