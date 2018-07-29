@@ -50,6 +50,11 @@
     }
 
 </table>
+
+@using X.PagedList.Mvc
+@using X.PagedList;
+@Html.PagedListPager(Model as X.PagedList.IPagedList, page => Url.Action("Index", new { pageNo = page }))
+
 <div id="details"></div>
 @section Scripts {
     <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
