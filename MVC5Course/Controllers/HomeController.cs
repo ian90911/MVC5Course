@@ -12,6 +12,7 @@ namespace MVC5Course.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.SafeJsString = "alert('test');";
             return View();
         }
 
