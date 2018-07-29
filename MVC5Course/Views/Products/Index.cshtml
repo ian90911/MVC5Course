@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Index";
+    if (IsAjax) { Layout = ""; }
 }
 
 <h2>Index</h2>
@@ -53,7 +54,8 @@
 
 @using X.PagedList.Mvc
 @using X.PagedList;
-@Html.PagedListPager(Model as X.PagedList.IPagedList, page => Url.Action("Index", new { pageNo = page }))
+@Html.PagedListPager(Model as X.PagedList.IPagedList, page => Url.Action("Index", new { pageNo = page })
+,PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing("#main"))
 
 <div id="details"></div>
 @section Scripts {
